@@ -18,7 +18,7 @@ class Event(models.Model):
     eventtype=models.ForeignKey(EventType, on_delete=models.DO_NOTHING)
     user=models.ForeignKey(User, on_delete=models.DO_NOTHING)
     evententrydate=models.DateField()
-    producturl=models.URLField(null=True, blank=True)
+    eventurl=models.URLField(null=True, blank=True)
     eventdescription=models.TextField()
 
     def __str__(self):
@@ -26,3 +26,16 @@ class Event(models.Model):
 
     class Meta:
         db_table='event'
+
+class Comment(models.Model):
+    commenttitle=models.CharField(max_length=255)
+    commentdate=models.DateField()
+    event=models.ForeignKey(Event, on_delete=models.DO_NOTHING)
+    user=models.ManyToManyField(User)
+    commenttext=models.TextField()
+
+    def __str__(self):
+        return self.commenttitle
+
+    class Meta:
+        db_table='comment'
