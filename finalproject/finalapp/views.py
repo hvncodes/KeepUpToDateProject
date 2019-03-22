@@ -9,7 +9,7 @@ def tasktypes(request):
     type_list=TaskType.objects.all()
     return render(request, 'finalapp/types.html', {'type_list': type_list})
 
-
+#
 
 #form view
 @login_required
