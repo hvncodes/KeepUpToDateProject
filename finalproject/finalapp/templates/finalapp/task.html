@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- leads to http://127.0.0.1:8000/finalapp/taskdetail/1 -->
+<h2>tasks</h2>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {% for item in task_list %}
+    <tr>
+        <td><a href="{% url ’taskdetail’ id=item.id %}">{{ item.taskname }}</a></td>
+        <td>{{ item.tasktype }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
