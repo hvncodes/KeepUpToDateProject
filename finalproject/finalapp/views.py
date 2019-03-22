@@ -11,11 +11,11 @@ def tasktypes(request):
 
 def gettasks(request):
    task_list=Task.objects.all()
-   return render(request, ‘finalapp/tasks.html’, {‘task_list’: task_list})
+   return render(request, 'finalapp/tasks.html', {'task_list': task_list})
 
 def taskdetail(request, id):
    taskdetail_list=get_object_or_404(Task, pk=id)
-   return render(request, ‘techapp/taskdetail.html’, {‘taskdetail_list’: taskdetail_list})
+   return render(request, 'techapp/taskdetail.html', {'taskdetail_list': taskdetail_list})
 
 #form view
 @login_required
