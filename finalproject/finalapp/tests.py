@@ -16,3 +16,7 @@ Class TestIndex(TestCase):
   def test_view_url_accessible_by_name(self):
     response=self.client(reverse('index'))
     self.assertEqual(response.status_code, 200)
+
+  def test_view_users_correct_template(self):
+    response=self.client(reverse('index'))
+    self.assertTemplateUsed(response, 'finalapp/index.html')
