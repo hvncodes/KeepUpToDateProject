@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import EventType, Event, Comment
+from .models import TaskType, Task, Comment
 
 # Register your models here.
-admin.site.register(EventType)
-admin.site.register(Event)
+admin.site.register(TaskType)
+admin.site.register(Task)
 admin.site.register(Comment)
