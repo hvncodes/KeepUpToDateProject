@@ -9,7 +9,7 @@
     </tr>
     {% for item in task_list %}
     <tr>
-        <td><a href="{% url ’taskdetail’ id=item.id %}">{{ item.taskname }}</a></td>
+        <td><a href="{% url 'taskdetail' id=item.id %}">{{ item.taskname }}</a></td>
         <td>{{ item.tasktype }}</td>
     </tr>
     {% endfor %}
