@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import TaskType, Task
+from .forms import TaskForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
