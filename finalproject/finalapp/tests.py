@@ -5,16 +5,33 @@ from datetime import datetime
 from django.urls import reverse
 
 # python manage.py test
-# Create your tests here.
+#models
+class TaskTypeTest(TestCase):
+  def test_stringOutput(self):
+    tasktype=TaskType(typename='Daily')
+    self.assertEqual(str(TaskType), tasktype.typename)
+  
+  def test_tablename(self):
+    self.assertEqual(str(TaskType._meta.db_table), 'tasktype')
+
 class TaskTest(TestCase):
   def test_stringOutput(self):
-    task=Task(typename='Daily')
+    task=Task(taskname='Lunch')
     self.assertEqual(str(Task), task.taskname)
   
   def test_tablename(self):
     self.assertEqual(str(Task._meta.db_table), 'task')
     
-Class TestIndex(TestCase):
+class CommentTest(TestCase):
+    def test_stringOutput(self):
+        comment=Comment(commenttitle='Bring a drink')
+        self.assertEqual(str(comment), comment.commenttitle)
+
+    def test_tablename(self):
+        self.assertEqual(str(Comment._meta.db_table), 'comment')
+
+#views
+class TestIndex(TestCase):
   def test_view_url_accessible_by_name(self):
     response=self.client(reverse('index'))
     self.assertEqual(response.status_code, 200)
@@ -23,8 +40,7 @@ Class TestIndex(TestCase):
     response=self.client(reverse('index'))
     self.assertTemplateUsed(response, 'finalapp/index.html')
 
-    
-    
+#forms
 class New_Task_Form_Test(TestCase):
 
     # Valid Form Data
