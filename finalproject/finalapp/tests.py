@@ -40,6 +40,85 @@ class TestIndex(TestCase):
     response=self.client(reverse('index'))
     self.assertTemplateUsed(response, 'finalapp/index.html')
 
+class TestTaskTypes(TestCase):
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/finalapp/types')
+        self.assertEqual(response.status_code, 200)
+  
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('taskdetail'))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('types'))
+        self.assertTemplateUsed(response, 'finalapp/types.html')  
+    
+class TestGetTask(TestCase):
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/finalapp/tasks')
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('gettasks'))
+        self.assertEqual(response.status_code, 200)
+        
+    def test_view_uses_correct_template(self):
+        response = self.client.get(reverse('gettasks'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'finalapp/tasks.html')
+
+class TestTaskDetails(TestCase):
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/finalapp/taskdetail')
+        self.assertEqual(response.status_code, 200)
+  
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('taskdetail'))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('taskdetail'))
+        self.assertTemplateUsed(response, 'finalapp/taskdetail.html')        
+        
+class TestLoginMessage(TestCase):
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/finalapp/loginmessage')
+        self.assertEqual(response.status_code, 200)
+  
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('loginmessage'))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('loginmessage'))
+        self.assertTemplateUsed(response, 'finalapp/loginmessage.html')
+    
+class TestLogOutMessage(TestCase):
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/finalapp/logoutmessage')
+        self.assertEqual(response.status_code, 200)
+  
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('logoutmessage'))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('logoutmessage'))
+        self.assertTemplateUsed(response, 'finalapp/logoutmessage.html')
+    
+class TestLogin(TestCase):
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/registration/login')
+        self.assertEqual(response.status_code, 200)
+  
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('login'))
+        self.assertTemplateUsed(response, 'registration/login.html')
+        
 #forms
 class New_Task_Form_Test(TestCase):
 
