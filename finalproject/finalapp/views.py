@@ -15,7 +15,7 @@ def gettasks(request):
 
 def taskdetail(request, id):
    taskdetail_list=get_object_or_404(Task, pk=id)
-   return render(request, 'techapp/taskdetail.html', {'taskdetail_list': taskdetail_list})
+   return render(request, 'finalapp/taskdetail.html', {'taskdetail_list': taskdetail_list})
 
 #form view
 @login_required
