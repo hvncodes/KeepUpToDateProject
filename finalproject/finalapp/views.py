@@ -19,7 +19,7 @@ def taskdetail(request, id):
 
 #form view
 @login_required
-def newevent(request):
+def newtask(request):
     form=TypeForm
     if request.method=='POST':
         form=TypeForm(request.POST)
